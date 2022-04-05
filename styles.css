@@ -84,6 +84,31 @@ body {
   padding: 38px 50px;
 }
 
+.sale-banner {
+  background-image: url("assets/images/background-image.png");
+  height: 384px;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.sale-overlay {
+  position: absolute;
+  left: 76px;
+  top: 81px;
+  background: rgba(0, 0, 0, 0.5);
+  max-width: 486px;
+  width: 100%;
+}
+
+.sale-info {
+  text-align: center;
+  font-size: 50px;
+  font-family: "Rockwell";
+  font-weight: bolder;
+  color: white;
+  padding: 50px 70px;
+}
+
 .product-heading {
   justify-content: center;
   display: flex;
@@ -202,7 +227,6 @@ body {
 
 .show-more-button {
   background-color: #dbafae;
-  /* background: none; */
   cursor: pointer;
   outline: none;
   border: none;
