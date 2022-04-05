@@ -95,6 +95,7 @@ body {
 
 .product-wrapper {
   padding: 32px 72px;
+  padding-bottom: 0;
   display: flex;
   justify-content: center;
 }
