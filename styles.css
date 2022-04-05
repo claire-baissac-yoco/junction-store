@@ -126,6 +126,7 @@ body {
   font-size: 45px;
   font-weight: bold;
   padding: 20px 26px;
+  padding-top: 40px;
 }
 
 .info-container-body {
@@ -152,7 +153,7 @@ body {
 }
 
 .add-cart-icon {
-  padding-bottom: 28px;
+  /* padding-bottom: 28px; */
   padding-right: 20px;
 }
 
