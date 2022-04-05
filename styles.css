@@ -13,8 +13,22 @@ body {
 
 .header {
   display: flex;
+  flex-direction: column;
+}
+
+.logo-user-container {
+  display: flex;
   justify-content: space-between;
   width: 100%;
+}
+
+.shipping-banner {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  color: white;
+  padding: 30px 0;
+  font-size: 30px;
 }
 
 .logo-nav-container {
