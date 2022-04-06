@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
     <title>Document</title>
   </head>
   <body>
@@ -52,7 +53,7 @@
                   />
                 </svg>
               </a>
-              <div class="cart-items">0</div>
+              <div class="cart-items" id="cart-items">0</div>
             </div>
             <a class="profile-container" href="#">
               <img src="assets/images/image.png" alt="profile-image" />
@@ -86,7 +87,7 @@
                     <div class="price-cart-container">
                       <div class="sale-price">R 17, 390.00</div>
                       <div class="add-cart-icon">
-                        <button>
+                        <button onclick="addToCart()">
                           <svg
                             width="61"
                             height="63"
