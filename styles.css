@@ -152,6 +152,10 @@ body {
   position: relative;
 }
 
+img {
+  max-width: 500px;
+}
+
 .discount-overlay {
   position: absolute;
   top: 28px;
