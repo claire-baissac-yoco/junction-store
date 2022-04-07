@@ -139,6 +139,11 @@ body {
   justify-content: center;
 }
 
+.product-item a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .product-card {
   display: flex;
   flex-direction: column;
@@ -152,7 +157,7 @@ body {
   position: relative;
 }
 
-img {
+.image-container img {
   max-width: 500px;
 }
 
@@ -226,7 +231,7 @@ img {
   display: flex;
   justify-content: center;
   padding: 72px 0;
-  padding-bottom: 350px;
+  /* padding-bottom: 350px; */
 }
 
 .show-more-button {
@@ -239,6 +244,10 @@ img {
   padding: 30px 0px;
   width: 100%;
   max-width: 594px;
+}
+
+footer {
+  padding-top: 350px;
 }
 
 .footer-logo {
