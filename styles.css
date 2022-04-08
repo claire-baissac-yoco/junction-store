@@ -199,7 +199,6 @@ body {
 
 .price-container {
   padding: 22px 26px;
-  padding-top: 50px;
 }
 
 .original-price {
@@ -248,9 +247,12 @@ body {
   max-width: 594px;
 }
 
-.button:disabled {
-  background-color: grey;
-  cursor: none;
+button:disabled,
+button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
 }
 
 footer {

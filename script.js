@@ -119,6 +119,7 @@ fetchAllProducts = () => {
             product.discounted_price
           );
         }
+        console.log(document.getElementById("show-more-button"));
 
         computeDiscount();
       })
