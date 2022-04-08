@@ -30,7 +30,14 @@ computeDiscount = () => {
   });
 };
 
-function createProductCard(productName, description, image, price, salePrice) {
+function createProductCard(
+  productId,
+  productName,
+  description,
+  image,
+  price,
+  salePrice
+) {
   console.log("createProductCard called");
   let productCard = document.createElement("div");
   productCard.className = "product-card";
@@ -62,7 +69,7 @@ function createProductCard(productName, description, image, price, salePrice) {
   let originalPrice = document.createElement("div");
   originalPrice.className = "original-price";
   if (price - salePrice > 0) {
-    originalPrice.textContent = price;
+    originalPrice.textContent = `R ${price}`;
   }
   priceContainer.appendChild(originalPrice);
 
@@ -70,7 +77,7 @@ function createProductCard(productName, description, image, price, salePrice) {
   priceCartContainer.className = "price-cart-container";
   let saleP = document.createElement("div");
   saleP.className = "sale-price";
-  saleP.textContent = salePrice;
+  saleP.textContent = `R ${salePrice}`;
   priceCartContainer.appendChild(saleP);
 
   let addCartIcon = document.createElement("div");
@@ -91,7 +98,10 @@ function createProductCard(productName, description, image, price, salePrice) {
 
   let productCardItem = document.createElement("li");
   productCardItem.className = "product-item";
-  productCardItem.appendChild(productCard);
+  let productLink = document.createElement("a");
+  productLink.href = `product.html?${productId}`;
+  productLink.appendChild(productCard);
+  productCardItem.appendChild(productLink);
   let productList = document.getElementById("product-list");
   productList.appendChild(productCardItem);
 }
@@ -112,6 +122,7 @@ fetchAllProducts = () => {
         ) {
           let product = data[i];
           createProductCard(
+            product.id,
             product.name,
             product.description,
             product.image,
