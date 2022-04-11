@@ -6,10 +6,12 @@ import { generateProductCard } from "./generateProductCard.js";
  */
 function displayProducts(products) {
   const displayContainer = document.getElementById("product-wrapper");
-  console.log(displayContainer);
   displayContainer.textContent = "";
+  const productList = document.createElement("ul");
+  productList.className = "product-list";
+  displayContainer.appendChild(productList);
   products.forEach((product) => {
-    displayContainer.appendChild(generateProductCard(product));
+    productList.appendChild(generateProductCard(product));
   });
 }
 
