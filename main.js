@@ -12,7 +12,10 @@ showMoreButton.addEventListener("click", () => {
 });
 
 const cartItems = document.getElementById("cart-items");
-cartItems.textContent = localStorage.getItem("cart").split(",").length;
+const cart = localStorage.getItem("cart");
+if (cart) {
+  cartItems.textContent = cart.split(",").length;
+}
 
 async function main() {
   products = await doFetch(API_URL);
