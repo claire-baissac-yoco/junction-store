@@ -1,3 +1,4 @@
+import { addToCart } from "./shoppingCart.js";
 import { calculateDiscount } from "./utils.js";
 
 /**
@@ -24,17 +25,23 @@ function generateProductCard(product) {
   im.src = image;
   im.alt = productName;
   imageContainer.appendChild(im);
-  productCard.appendChild(imageContainer);
+  const imageProductLink = document.createElement("a");
+  imageProductLink.href = `product.html?id=${productId}`;
+  imageProductLink.appendChild(imageContainer);
+  productCard.appendChild(imageProductLink);
 
   const infoContainer = document.createElement("div");
   infoContainer.className = "info-container";
   const infoContainerHeading = document.createElement("div");
   infoContainerHeading.className = "info-container-heading";
   infoContainerHeading.textContent = productName;
+  const headingProductLink = document.createElement("a");
+  headingProductLink.href = `product.html?id=${productId}`;
+  headingProductLink.appendChild(infoContainerHeading);
   const infoContainerBody = document.createElement("div");
   infoContainerBody.className = "info-container-body";
   infoContainerBody.textContent = description;
-  infoContainer.appendChild(infoContainerHeading);
+  infoContainer.appendChild(headingProductLink);
   infoContainer.appendChild(infoContainerBody);
   productCard.appendChild(infoContainer);
 
@@ -77,10 +84,7 @@ function generateProductCard(product) {
 
   const productCardItem = document.createElement("li");
   productCardItem.className = "product-item";
-  const productLink = document.createElement("a");
-  productLink.href = `product.html?${productId}`;
-  productLink.appendChild(productCard);
-  productCardItem.appendChild(productLink);
+  productCardItem.appendChild(productCard);
 
   return productCardItem;
 }
@@ -92,7 +96,9 @@ function generateProductCard(product) {
 function onAddToCart(product) {
   console.log(product.id);
   let cartItems = document.getElementById("cart-items");
-  cartItems.textContent = parseInt(cartItems.textContent) + 1;
+  cartItems.textContent = localStorage.getItem("cart").split(",").length + 1;
+  addToCart(product);
+  console.log(localStorage.getItem("cart"));
 }
 
 export { generateProductCard };
