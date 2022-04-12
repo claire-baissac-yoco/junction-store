@@ -1,5 +1,7 @@
 import { generateProductCard } from "./generateProductCard.js";
 
+let numProducts = 3;
+
 /**
  * Displays the product cards
  * @param {*} products - array of json objects describing each product

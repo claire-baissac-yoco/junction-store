@@ -20,12 +20,10 @@ function generateProductCard(product) {
   const imageContainer = document.createElement("div");
   imageContainer.className = "image-container";
   const im = document.createElement("img");
-  const discountOverlay = document.createElement("div");
-  discountOverlay.className = "discount-overlay";
+
   im.src = image;
   im.alt = productName;
   imageContainer.appendChild(im);
-  imageContainer.appendChild(discountOverlay);
   productCard.appendChild(imageContainer);
 
   const infoContainer = document.createElement("div");
@@ -47,9 +45,10 @@ function generateProductCard(product) {
   if (price - salePrice > 0) {
     originalPrice.textContent = `R ${price}`;
     const discount = calculateDiscount(price, salePrice);
+    const discountOverlay = document.createElement("div");
+    discountOverlay.className = "discount-overlay";
     discountOverlay.textContent = discount;
-  } else {
-    discountOverlay.style.background = "none";
+    imageContainer.appendChild(discountOverlay);
   }
   priceContainer.appendChild(originalPrice);
 
@@ -84,11 +83,12 @@ function generateProductCard(product) {
   productCardItem.appendChild(productLink);
 
   return productCardItem;
-
-  // const productList = document.getElementById("product-list");
-  // productList.appendChild(productCardItem);
 }
 
+/**
+ * Adds the given product to the user's cart
+ * @param {*} product object containing the product information
+ */
 function onAddToCart(product) {
   console.log(product.id);
   let cartItems = document.getElementById("cart-items");
