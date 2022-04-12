@@ -11,6 +11,9 @@ showMoreButton.addEventListener("click", () => {
   handleShowMore();
 });
 
+const cartItems = document.getElementById("cart-items");
+cartItems.textContent = localStorage.getItem("cart").split(",").length;
+
 async function main() {
   products = await doFetch(API_URL);
   console.log(products.slice(0, currentNumberOfProducts));
