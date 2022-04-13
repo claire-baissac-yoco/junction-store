@@ -95,10 +95,10 @@ function generateProductCard(product) {
  */
 function onAddToCart(product) {
   console.log(product.id);
-  let cartItems = document.getElementById("cart-items");
+  // let cartItems = document.getElementById("cart-items");
   addToCart(product);
-  cartItems.textContent = localStorage.getItem("cart").split(",").length;
-  console.log(localStorage.getItem("cart"));
+  // cartItems.textContent = localStorage.getItem("cart").split(",").length;
+  console.log(JSON.parse(localStorage.getItem("cart")));
 }
 
 export { generateProductCard };
