@@ -26,4 +26,6 @@ function calculateDiscount(originalPrice, salePrice) {
   return `${discount}% OFF`;
 }
 
+function calculateVat() {}
+
 export { doFetch, calculateDiscount };
