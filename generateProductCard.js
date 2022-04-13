@@ -96,8 +96,8 @@ function generateProductCard(product) {
 function onAddToCart(product) {
   console.log(product.id);
   let cartItems = document.getElementById("cart-items");
-  cartItems.textContent = localStorage.getItem("cart").split(",").length + 1;
   addToCart(product);
+  cartItems.textContent = localStorage.getItem("cart").split(",").length;
   console.log(localStorage.getItem("cart"));
 }
 
