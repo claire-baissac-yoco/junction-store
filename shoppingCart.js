@@ -1,35 +1,42 @@
 function addToCart(product) {
-  try {
-    let cart = JSON.parse(localStorage.getItem("cart"));
-    cart.push(product);
-    localStorage.setItem("cart", JSON.stringify(cart));
-  } catch (error) {
-    let cart = [product];
-    console.log(cart);
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }
+  let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+  cart.push(product);
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 function removeFromCart(product) {
-  // let cart = localStorage.getItem("cart").split(",");
-  // const index = cart.indexOf(product.id);
-  // if (index > -1) {
-  //   cart.splice(index, 1);
-  // }
-  // localStorage.setItem("cart", cart.toString());
+  let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+  const index = cart.findIndex((prod) => {
+    console.log(prod.id, product.id);
+    return prod.id === product.id;
+  });
+  if (index > -1) {
+    cart.splice(index, 1);
+  }
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 function getCartTotal() {
-  // const cart = localStorage.getItem("cart");
-  // if (cart) {
-  //   return cart.split(",").length;
-  // } else {
-  //   return 0;
-  // }
+  let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+  return cart.reduce(
+    (total, currentValue) => (total += currentValue.discounted_price),
+    0
+  );
 }
 
 function clearCart() {
   localStorage.removeItem("cart");
 }
 
-export { addToCart, removeFromCart, getCartTotal, clearCart };
+function getNumberItemsInCart() {
+  let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+  return cart.length;
+}
+
+export {
+  addToCart,
+  removeFromCart,
+  getCartTotal,
+  clearCart,
+  getNumberItemsInCart,
+};

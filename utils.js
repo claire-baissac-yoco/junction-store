@@ -26,6 +26,8 @@ function calculateDiscount(originalPrice, salePrice) {
   return `${discount}% OFF`;
 }
 
-function calculateVat() {}
+function calculateVat(total) {
+  return (Math.round(0.15 * total * 100) / 100).toFixed(2);
+}
 
-export { doFetch, calculateDiscount };
+export { doFetch, calculateDiscount, calculateVat };
