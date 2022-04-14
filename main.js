@@ -1,6 +1,7 @@
 import { doFetch } from "./utils.js";
 import { API_URL } from "./shared.js";
 import { displayProducts } from "./displayProducts.js";
+import { getNumberItemsInCart } from "./shoppingCart.js";
 
 let products = [];
 let currentNumberOfProducts = 3;
@@ -11,11 +12,7 @@ showMoreButton.addEventListener("click", () => {
   handleShowMore();
 });
 
-const cartItems = document.getElementById("cart-items");
-const cart = localStorage.getItem("cart");
-if (cart) {
-  cartItems.textContent = cart.split(",").length;
-}
+document.getElementById("cart-items").textContent = getNumberItemsInCart();
 
 async function main() {
   products = await doFetch(API_URL);

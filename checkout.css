@@ -5,17 +5,27 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-.cart-wrapper {
+.checkout-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  /* max-width: 893px; */
+}
+
+.checkout-cart-container {
   border: 1px solid;
   margin: 0 84px;
   padding: 44px 47px;
   padding-bottom: 33px;
   max-width: 893px;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.checkout-cart-container {
+.cart-wrapper {
   justify-content: center;
   max-width: 893px;
   width: 100%;
@@ -25,6 +35,12 @@ body {
   font-weight: 700;
   font-size: 45px;
   padding-bottom: 86px;
+}
+
+.empty {
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 0;
 }
 
 .cart-item {
@@ -95,9 +111,58 @@ button {
   font-size: 30px;
 }
 
+.pay-button-container {
+  display: flex;
+  justify-content: center;
+  padding: 72px 0;
+  width: 100%;
+}
+
+.pay-button {
+  background-color: #dbafae;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: white;
+  font-size: 40px;
+  padding: 20px 0px;
+  width: 100%;
+  max-width: 594px;
+  text-decoration: none;
+}
+
 .cart-price-info {
   justify-content: right;
   display: flex;
   flex-direction: column;
   text-align: right;
+  width: 100%;
+  /* max-width: 250px; */
+  float: right;
+  font-size: 30px;
+}
+
+.cart-subtotal {
+  width: 100%;
+}
+
+.cart-payment-container {
+  width: 100%;
+  /* max-width: 206px; */
+  justify-content: space-between;
+  display: flex;
+  text-align: right;
+}
+
+.cart-price-heading {
+  display: flex;
+  justify-content: right;
+  text-align: right;
+  /* max-width: 148px; */
+  width: 100%;
+}
+
+.total-payment {
+  font-size: 45px;
+  font-weight: 700;
 }

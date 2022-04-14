@@ -6,6 +6,8 @@ import {
 } from "./shoppingCart.js";
 import { calculateVat } from "./utils.js";
 
+document.getElementById("cart-items").textContent = getNumberItemsInCart();
+
 function generateCartItem(product) {
   const { name: productName, discounted_price: salePrice, image } = product;
   const cartItem = document.createElement("div");
@@ -58,48 +60,70 @@ function generateCartItem(product) {
 
 function displayCartItems() {
   let cart = JSON.parse(localStorage.getItem("cart") || "[]");
-  const cartContainer = document.createElement("div");
-  const cartWrapper = document.getElementById("checkout-cart-container");
+  const cartWrapper = document.createElement("div");
+  const checkoutContainer = document.getElementById("checkout-container");
+  const cartContainer = document.getElementById("checkout-cart-container");
   cartWrapper.className = "cart-wrapper";
-  cartWrapper.appendChild(cartContainer);
+  cartContainer.appendChild(cartWrapper);
+  checkoutContainer.appendChild(cartContainer);
   const cartItemList = document.createElement("ul");
   const cartInfo = document.createElement("div");
   cartInfo.className = "cart-info";
-  cartContainer.appendChild(cartInfo);
-  cartContainer.appendChild(cartItemList);
-
-  const priceInfo = document.createElement("div");
-  priceInfo.className = "cart-price-info";
-  const subtotalHeading = document.createElement("span");
-  subtotalHeading.className = "cart-subtotal-heading";
-  subtotalHeading.textContent = "Sub-total:";
-  const subtotalContainer = document.createElement("div");
-  subtotalContainer.className = "cart-subtotal-container";
-  subtotalContainer.appendChild(subtotalHeading);
-  const subtotal = document.createElement("span");
-  subtotal.className = "cart-subtotal";
-  const subtotalVal = getCartTotal();
-  subtotal.textContent = `R ${subtotalVal}`;
-  subtotalContainer.appendChild(subtotal);
-  const vat = document.createElement("div");
-  vat.className = "cart-vat";
-  const vatVal = calculateVat(subtotalVal);
-  vat.textContent = `R ${vatVal}`;
-  const total = document.createElement("div");
-  total.className = "cart-total";
-  total.textContent = `R ${parseFloat(subtotalVal) + parseFloat(vatVal)}`;
-  priceInfo.appendChild(subtotalContainer);
-  priceInfo.appendChild(vat);
-  priceInfo.appendChild(total);
-  cartContainer.appendChild(priceInfo);
+  cartWrapper.appendChild(cartInfo);
+  cartWrapper.appendChild(cartItemList);
 
   if (cart.length === 0) {
     cartInfo.textContent = "Your cart is empty";
+    cartInfo.className += " empty";
   } else {
+    const priceInfo = document.createElement("div");
+    priceInfo.className = "cart-price-info";
+
+    const subtotalHeading = document.createElement("span");
+    subtotalHeading.className = "cart-price-heading";
+    subtotalHeading.textContent = "Sub-total:";
+    const subtotalContainer = document.createElement("div");
+    subtotalContainer.className = "cart-payment-container";
+    subtotalContainer.appendChild(subtotalHeading);
+    const subtotal = document.createElement("span");
+    subtotal.className = "cart-subtotal";
+    const subtotalVal = getCartTotal();
+    subtotal.textContent = `R ${subtotalVal}`;
+    subtotalContainer.appendChild(subtotal);
+
+    const vatHeading = document.createElement("span");
+    vatHeading.className = "cart-price-heading";
+    vatHeading.textContent = "VAT:";
+    const vatContainer = document.createElement("div");
+    vatContainer.className = "cart-payment-container";
+    vatContainer.appendChild(vatHeading);
+    const vat = document.createElement("span");
+    vat.className = "cart-subtotal";
+    const vatVal = calculateVat(subtotalVal);
+    vat.textContent = `R ${vatVal}`;
+    vatContainer.appendChild(vat);
+
+    const totalHeading = document.createElement("span");
+    totalHeading.className = "cart-price-heading";
+    totalHeading.textContent = "Total:";
+    const totalContainer = document.createElement("div");
+    totalContainer.className = "cart-payment-container total-payment";
+    totalContainer.appendChild(totalHeading);
+    const total = document.createElement("span");
+    total.className = "cart-subtotal";
+    total.textContent = `R ${parseFloat(subtotalVal) + parseFloat(vatVal)}`;
+    totalContainer.appendChild(total);
+
+    priceInfo.appendChild(subtotalContainer);
+    priceInfo.appendChild(vatContainer);
+    priceInfo.appendChild(totalContainer);
+    cartWrapper.appendChild(priceInfo);
+
     const numItemsInCart = getNumberItemsInCart();
     cartInfo.textContent = `Your cart has ${numItemsInCart} ${
       numItemsInCart === 1 ? "item" : "items"
     }`;
+
     const clearButton = document.createElement("button");
     clearButton.className = "clear-cart-button";
     clearButton.textContent = "Clear cart";
@@ -107,10 +131,19 @@ function displayCartItems() {
       clearCart();
     });
     cartInfo.appendChild(clearButton);
+
     cart.forEach((product) => {
       console.log(product);
       cartItemList.appendChild(generateCartItem(product));
     });
+
+    const payButton = document.createElement("button");
+    const payButtonContainer = document.createElement("div");
+    payButtonContainer.className = "pay-button-container";
+    payButtonContainer.appendChild(payButton);
+    payButton.className = "pay-button";
+    payButton.textContent = "PAY";
+    checkoutContainer.appendChild(payButtonContainer);
   }
 }
 
