@@ -7,9 +7,8 @@ body {
 
 .checkout-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  /* align-content: stretch; */
   width: 100%;
   /* max-width: 893px; */
 }
@@ -20,9 +19,9 @@ body {
   padding: 44px 47px;
   padding-bottom: 33px;
   max-width: 893px;
+  width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-self: center;
 }
 
 .cart-wrapper {
