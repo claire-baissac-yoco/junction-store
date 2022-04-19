@@ -1,4 +1,4 @@
-import { addToCart } from "./shoppingCart.js";
+import { addToCart, getNumberItemsInCart } from "./shoppingCart.js";
 import { calculateDiscount } from "./utils.js";
 
 /**
@@ -94,11 +94,8 @@ function generateProductCard(product) {
  * @param {*} product object containing the product information
  */
 function onAddToCart(product) {
-  console.log(product.id);
-  // let cartItems = document.getElementById("cart-items");
   addToCart(product);
-  // cartItems.textContent = localStorage.getItem("cart").split(",").length;
-  console.log(JSON.parse(localStorage.getItem("cart")));
+  document.getElementById("cart-items").textContent = getNumberItemsInCart();
 }
 
 export { generateProductCard };

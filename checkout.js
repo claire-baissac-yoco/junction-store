@@ -111,7 +111,9 @@ function displayCartItems() {
     totalContainer.appendChild(totalHeading);
     const total = document.createElement("span");
     total.className = "cart-subtotal";
-    total.textContent = `R ${parseFloat(subtotalVal) + parseFloat(vatVal)}`;
+    total.textContent = `R ${Math.round(
+      ((parseFloat(subtotalVal) + parseFloat(vatVal)) * 100) / 100
+    ).toFixed(2)}`;
     totalContainer.appendChild(total);
 
     priceInfo.appendChild(subtotalContainer);

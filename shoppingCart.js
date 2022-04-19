@@ -7,7 +7,6 @@ function addToCart(product) {
 function removeFromCart(product) {
   let cart = JSON.parse(localStorage.getItem("cart") || "[]");
   const index = cart.findIndex((prod) => {
-    console.log(prod.id, product.id);
     return prod.id === product.id;
   });
   if (index > -1) {
@@ -18,10 +17,11 @@ function removeFromCart(product) {
 
 function getCartTotal() {
   let cart = JSON.parse(localStorage.getItem("cart") || "[]");
-  return cart.reduce(
+  const total = cart.reduce(
     (total, currentValue) => (total += currentValue.discounted_price),
     0
   );
+  return Math.round((total * 100) / 100).toFixed(2);
 }
 
 function clearCart() {

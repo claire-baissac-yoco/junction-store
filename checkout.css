@@ -8,9 +8,7 @@ body {
 .checkout-container {
   display: flex;
   flex-direction: column;
-  /* align-content: stretch; */
   width: 100%;
-  /* max-width: 893px; */
 }
 
 .checkout-cart-container {
