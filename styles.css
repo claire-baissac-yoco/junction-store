@@ -127,16 +127,12 @@ body {
 
 .product-list {
   list-style: none;
-  /* display: flex; */
   justify-content: space-between;
   align-items: center;
-  /* width: 100%; */
   max-width: 1728px;
-  /* overflow: auto; */
 }
 
 .product-item {
-  /* justify-content: center; */
   padding: 20px 20px;
   display: inline-block;
 }

@@ -3,8 +3,8 @@ import { calculateDiscount, createElement } from "./utils.js";
 
 /**
  * Generates a product card for the given product
- * @param {*} product - the product about which to generate the card
- * @returns - a div element for the product
+ * @param {*} product the product about which to generate the card
+ * @returns a div element for the product
  */
 function generateProductCard(product) {
   const {

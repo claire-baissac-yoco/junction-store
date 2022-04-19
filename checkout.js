@@ -8,6 +8,11 @@ import { calculateVat, createElement } from "./utils.js";
 
 document.getElementById("cart-items").textContent = getNumberItemsInCart();
 
+/**
+ * Generates an li HTML element for the given product
+ * @param {*} product the product for which to create the HTML element
+ * @returns the li element for the product
+ */
 function generateCartItem(product) {
   const { name: productName, discounted_price: salePrice, image } = product;
   const cartItem = createElement("div", "cart-item");
@@ -53,6 +58,9 @@ function generateCartItem(product) {
   return cartListItem;
 }
 
+/**
+ * Displays the items in the user's cart
+ */
 function displayCartItems() {
   let cart = JSON.parse(localStorage.getItem("cart") || "[]");
   const cartWrapper = createElement("div", "cart-wrapper");

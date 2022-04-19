@@ -14,11 +14,17 @@ showMoreButton.addEventListener("click", () => {
 
 document.getElementById("cart-items").textContent = getNumberItemsInCart();
 
+/**
+ * Displays the products on the main page
+ */
 async function main() {
   products = await doFetch(API_URL);
   displayProducts(products.slice(0, currentNumberOfProducts));
 }
 
+/**
+ * Displays more products to the user
+ */
 function handleShowMore() {
   currentNumberOfProducts += incrementProducts;
   if (currentNumberOfProducts > products.length) {

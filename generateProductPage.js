@@ -1,6 +1,11 @@
 import { addToCart, getNumberItemsInCart } from "./shoppingCart.js";
 import { createElement } from "./utils.js";
 
+/**
+ * Generates the product page for the given product
+ * @param {*} product the product for which to generate the page
+ * @returns a div HTML element for the product
+ */
 function generateProductPage(product) {
   const {
     name: productName,

@@ -3,6 +3,9 @@ import { API_URL } from "./shared.js";
 import { getNumberItemsInCart } from "./shoppingCart.js";
 import { doFetch } from "./utils.js";
 
+/**
+ * Displays the product page for the selected product
+ */
 async function product() {
   document.getElementById("cart-items").textContent = getNumberItemsInCart();
   const params = new URLSearchParams(window.location.search);

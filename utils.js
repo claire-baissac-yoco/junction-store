@@ -26,10 +26,22 @@ function calculateDiscount(originalPrice, salePrice) {
   return `${discount}% OFF`;
 }
 
+/**
+ * Calculates the VAT for the given total
+ * @param {number} total the value for which to calculate the VAT
+ * @returns the VAT for the given total
+ */
 function calculateVat(total) {
   return (Math.round(0.15 * total * 100) / 100).toFixed(2);
 }
 
+/**
+ * Creates an HTML element of the given type and with
+ * the given class name
+ * @param {string} elementType the type of HTML element to create
+ * @param {string} className the class name to give the element
+ * @returns the HTML element
+ */
 function createElement(elementType, className) {
   const element = document.createElement(elementType);
   element.className = className;
