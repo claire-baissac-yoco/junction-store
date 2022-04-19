@@ -120,7 +120,6 @@ function displayCartItems() {
     cartInfo.appendChild(clearButton);
 
     cart.forEach((product) => {
-      console.log(product);
       cartItemList.appendChild(generateCartItem(product));
     });
 

@@ -3,7 +3,6 @@ import { createElement } from "./utils";
 let numProductsDisplayed = 3;
 
 addToCart = () => {
-  console.log("add to cart called");
   let cartItems = document.getElementById("cart-items");
   cartItems.textContent = parseInt(cartItems.textContent) + 1;
 };
@@ -14,7 +13,6 @@ formatPrice = (price) => {
 };
 
 computeDiscount = () => {
-  console.log("compute discount called");
   let originalPriceArr = document.getElementsByClassName("original-price");
   let salePriceArr = document.getElementsByClassName("sale-price");
   originalPriceArr = Array.from(originalPriceArr);
@@ -40,7 +38,6 @@ function createProductCard(
   price,
   salePrice
 ) {
-  console.log("createProductCard called");
   let productCard = createElement("div", "product-card");
   let imageContainer = createElement("div", "image-container");
   let im = document.createElement("img");
@@ -101,7 +98,6 @@ fetchAllProducts = () => {
     (response) =>
       response.json().then((data) => {
         if (numProductsDisplayed > data.length) {
-          console.log("disable button");
           document.getElementById("show-more-button").disabled = true;
         }
 
@@ -120,8 +116,6 @@ fetchAllProducts = () => {
             product.discounted_price
           );
         }
-        console.log(document.getElementById("show-more-button"));
-
         computeDiscount();
       })
   );
@@ -131,6 +125,5 @@ fetchAllProducts();
 
 displayMoreProducts = () => {
   numProductsDisplayed += 3;
-  console.log(numProductsDisplayed);
   fetchAllProducts();
 };

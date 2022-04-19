@@ -3,7 +3,6 @@ import { createElement } from "./utils.js";
 
 function generateProductPage(product) {
   const {
-    id: productId,
     name: productName,
     company,
     description,
@@ -12,6 +11,7 @@ function generateProductPage(product) {
     discounted_price: salePrice,
   } = product;
 
+  document.getElementById("title").textContent = productName;
   let productImageContainer = createElement("div", "product-image-container");
   let productImage = document.createElement("img");
   productImage.src = image;
@@ -19,7 +19,7 @@ function generateProductPage(product) {
   productImageContainer.appendChild(productImage);
 
   let productInfoContainer = createElement("div", "product-info-container");
-  let productInfoContainerHeading = document.createElement(
+  let productInfoContainerHeading = createElement(
     "h2",
     "product-info-container-heading"
   );

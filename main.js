@@ -16,12 +16,10 @@ document.getElementById("cart-items").textContent = getNumberItemsInCart();
 
 async function main() {
   products = await doFetch(API_URL);
-  console.log(products.slice(0, currentNumberOfProducts));
   displayProducts(products.slice(0, currentNumberOfProducts));
 }
 
 function handleShowMore() {
-  console.log("handle show more");
   currentNumberOfProducts += incrementProducts;
   if (currentNumberOfProducts > products.length) {
     showMoreButton.disabled = true;
