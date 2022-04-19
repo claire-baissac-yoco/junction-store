@@ -1,3 +1,5 @@
+import { createElement } from "./utils";
+
 let numProductsDisplayed = 3;
 
 addToCart = () => {
@@ -39,49 +41,38 @@ function createProductCard(
   salePrice
 ) {
   console.log("createProductCard called");
-  let productCard = document.createElement("div");
-  productCard.className = "product-card";
-  let imageContainer = document.createElement("div");
-  imageContainer.className = "image-container";
+  let productCard = createElement("div", "product-card");
+  let imageContainer = createElement("div", "image-container");
   let im = document.createElement("img");
-  let discountOverlay = document.createElement("div");
-  discountOverlay.className = "discount-overlay";
+  let discountOverlay = createElement("div", "discount-overlay");
   im.src = image;
   im.alt = productName;
   imageContainer.appendChild(im);
   imageContainer.appendChild(discountOverlay);
   productCard.appendChild(imageContainer);
 
-  let infoContainer = document.createElement("div");
-  infoContainer.className = "info-container";
-  let infoContainerHeading = document.createElement("div");
-  infoContainerHeading.className = "info-container-heading";
+  let infoContainer = createElement("div", "info-container");
+  let infoContainerHeading = createElement("div", "info-container-heading");
   infoContainerHeading.textContent = productName;
-  let infoContainerBody = document.createElement("div");
-  infoContainerBody.className = "info-container-body";
+  let infoContainerBody = createElement("div", "info-container-body");
   infoContainerBody.textContent = description;
   infoContainer.appendChild(infoContainerHeading);
   infoContainer.appendChild(infoContainerBody);
   productCard.appendChild(infoContainer);
 
-  let priceContainer = document.createElement("div");
-  priceContainer.className = "price-container";
-  let originalPrice = document.createElement("div");
-  originalPrice.className = "original-price";
+  let priceContainer = createElement("div", "price-container");
+  let originalPrice = createElement("div", "original-price");
   if (price - salePrice > 0) {
     originalPrice.textContent = `R ${price}`;
   }
   priceContainer.appendChild(originalPrice);
 
-  let priceCartContainer = document.createElement("div");
-  priceCartContainer.className = "price-cart-container";
-  let saleP = document.createElement("div");
-  saleP.className = "sale-price";
+  let priceCartContainer = createElement("div", "price-cart-container");
+  let saleP = createElement("div", "sale-price");
   saleP.textContent = `R ${salePrice}`;
   priceCartContainer.appendChild(saleP);
 
-  let addCartIcon = document.createElement("div");
-  addCartIcon.className = "add-cart-icon";
+  let addCartIcon = createElement("div", "add-cart-icon");
   let addCartButton = document.createElement("button");
   addCartButton.onclick = function () {
     addToCart();
@@ -96,8 +87,7 @@ function createProductCard(
   priceContainer.appendChild(priceCartContainer);
   infoContainer.appendChild(priceContainer);
 
-  let productCardItem = document.createElement("li");
-  productCardItem.className = "product-item";
+  let productCardItem = createElement("li", "product-item");
   let productLink = document.createElement("a");
   productLink.href = `product.html?${productId}`;
   productLink.appendChild(productCard);

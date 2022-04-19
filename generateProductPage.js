@@ -1,4 +1,5 @@
 import { addToCart, getNumberItemsInCart } from "./shoppingCart.js";
+import { createElement } from "./utils.js";
 
 function generateProductPage(product) {
   const {
@@ -11,49 +12,48 @@ function generateProductPage(product) {
     discounted_price: salePrice,
   } = product;
 
-  let productImageContainer = document.createElement("div");
-  productImageContainer.className = "product-image-container";
+  let productImageContainer = createElement("div", "product-image-container");
   let productImage = document.createElement("img");
   productImage.src = image;
   productImage.alt = productName;
   productImageContainer.appendChild(productImage);
 
-  let productInfoContainer = document.createElement("div");
-  productInfoContainer.className = "product-info-container";
-  let productInfoContainerHeading = document.createElement("h2");
-  productInfoContainerHeading.className = "product-info-container-heading";
+  let productInfoContainer = createElement("div", "product-info-container");
+  let productInfoContainerHeading = document.createElement(
+    "h2",
+    "product-info-container-heading"
+  );
   productInfoContainerHeading.textContent = productName;
   productInfoContainer.appendChild(productInfoContainerHeading);
-  let companyInfo = document.createElement("span");
-  companyInfo.className = "company-info";
+  let companyInfo = createElement("span", "company-info");
   companyInfo.textContent = "By ";
-  let companyName = document.createElement("span");
-  companyName.className = "company-name";
+  let companyName = createElement("span", "company-name");
   companyName.textContent = company;
   companyInfo.appendChild(companyName);
   productInfoContainer.appendChild(companyInfo);
 
-  let productInfoContainerBody = document.createElement("div");
-  productInfoContainerBody.className = "product-info-container-body";
+  let productInfoContainerBody = createElement(
+    "div",
+    "product-info-container-body"
+  );
   productInfoContainerBody.textContent = description;
   productInfoContainer.appendChild(productInfoContainerBody);
 
-  let originalPrice = document.createElement("div");
-  originalPrice.className = "original-price";
+  let originalPrice = createElement("div", "original-price");
   if (price - salePrice > 0) {
     originalPrice.textContent = `R ${price}`;
   }
   productInfoContainer.appendChild(originalPrice);
 
-  let salePr = document.createElement("div");
-  salePr.className = "sale-price";
+  let salePr = createElement("div", "sale-price");
   salePr.textContent = `R ${salePrice}`;
   productInfoContainer.appendChild(salePr);
 
-  let addCartButtonContainer = document.createElement("div");
-  addCartButtonContainer.className = "add-cart-button-container";
-  let addCartButton = document.createElement("button");
-  addCartButton.className = "add-cart-button";
+  let addCartButtonContainer = createElement(
+    "div",
+    "add-cart-button-container"
+  );
+  let addCartButton = createElement("button", "add-cart-button");
   addCartButton.onclick = function () {
     onAddToCart(product);
   };
@@ -61,8 +61,7 @@ function generateProductPage(product) {
   addCartButtonContainer.appendChild(addCartButton);
   productInfoContainer.appendChild(addCartButtonContainer);
 
-  let productWrapper = document.createElement("div");
-  productWrapper.className = "product-wrapper";
+  let productWrapper = createElement("div", "product-wrapper");
   productWrapper.appendChild(productImageContainer);
   productWrapper.appendChild(productInfoContainer);
 

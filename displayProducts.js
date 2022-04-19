@@ -1,4 +1,5 @@
 import { generateProductCard } from "./generateProductCard.js";
+import { createElement } from "./utils.js";
 
 /**
  * Displays the product cards
@@ -7,8 +8,7 @@ import { generateProductCard } from "./generateProductCard.js";
 function displayProducts(products) {
   const displayContainer = document.getElementById("product-wrapper");
   displayContainer.textContent = "";
-  const productList = document.createElement("ul");
-  productList.className = "product-list";
+  const productList = createElement("ul", "product-list");
   displayContainer.appendChild(productList);
   products.forEach((product) => {
     productList.appendChild(generateProductCard(product));

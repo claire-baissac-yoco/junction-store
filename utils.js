@@ -30,4 +30,10 @@ function calculateVat(total) {
   return (Math.round(0.15 * total * 100) / 100).toFixed(2);
 }
 
-export { doFetch, calculateDiscount, calculateVat };
+function createElement(elementType, className) {
+  const element = document.createElement(elementType);
+  element.className = className;
+  return element;
+}
+
+export { doFetch, calculateDiscount, calculateVat, createElement };
