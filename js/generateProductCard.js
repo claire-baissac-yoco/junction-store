@@ -61,7 +61,7 @@ function generateProductCard(product) {
     onAddToCart(product);
   });
   const cartImg = document.createElement("img");
-  cartImg.src = "assets/images/cart.png";
+  cartImg.src = "../assets/images/cart.png";
   cartImg.alt = "cart";
   addCartButton.appendChild(cartImg);
   addCartIcon.appendChild(addCartButton);

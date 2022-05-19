@@ -85,7 +85,7 @@ body {
 }
 
 .sale-banner {
-  background-image: url("assets/images/background-image.png");
+  background-image: url("../assets/images/background-image.png");
   height: 384px;
   margin-bottom: 32px;
   position: relative;

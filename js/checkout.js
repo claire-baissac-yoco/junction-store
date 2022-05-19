@@ -40,7 +40,7 @@ function generateCartItem(product) {
   removeButton.textContent = "Remove";
   removeButton.addEventListener("click", () => {
     removeFromCart(product);
-    location.href = "/checkout.html";
+    location.href = "../components/checkout.html";
   });
 
   const priceRemoveContainer = createElement(
@@ -123,7 +123,7 @@ function displayCartItems() {
     clearButton.textContent = "Clear cart";
     clearButton.addEventListener("click", () => {
       clearCart();
-      location.href = "/checkout.html";
+      location.href = "../components/checkout.html";
     });
     cartInfo.appendChild(clearButton);
 
